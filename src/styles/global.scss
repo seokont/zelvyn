@@ -1202,32 +1202,105 @@ em {
 
 .food-phone {
   position: relative;
-  width: min(100%, 358px);
+  width: min(calc(100% - 18px), 354px);
   margin-inline: auto;
+  padding: 4px;
+  border: 2px solid #5f6d68;
+  border-radius: 49px;
+  background: linear-gradient(145deg, #273631, #101815 70%);
+  box-shadow:
+    0 42px 90px rgba(38, 58, 51, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 0 0 3px rgba(17, 26, 23, 0.96);
+}
+
+.food-phone__screen {
+  position: relative;
   overflow: hidden;
-  border: 8px solid #183c34;
-  border-radius: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 43px;
   background: #fff;
-  box-shadow: var(--shadow-lg);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 18px rgba(17, 33, 27, 0.08);
+    pointer-events: none;
+  }
+}
+
+.food-phone__button {
+  position: absolute;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #61706b, #1d2925);
+  box-shadow: 0 0 0 1px rgba(13, 20, 18, 0.7);
+}
+
+.food-phone__button--silent { top: 88px; left: -7px; height: 26px; }
+.food-phone__button--volume-up { top: 132px; left: -7px; height: 48px; }
+.food-phone__button--volume-down { top: 190px; left: -7px; height: 48px; }
+.food-phone__button--power { top: 145px; right: -7px; height: 76px; }
+
+.food-phone__status {
+  display: flex;
+  height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 22px 0;
+  color: #17201d;
+
+  > strong {
+    font-size: 0.64rem;
+    letter-spacing: -0.02em;
+  }
+
+  > span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  svg {
+    width: 11px;
+    height: 11px;
+    stroke-width: 2.5;
+  }
 }
 
 .food-phone__notch {
   position: absolute;
-  z-index: 4;
-  top: 8px;
+  z-index: 5;
+  top: 9px;
   left: 50%;
-  width: 86px;
-  height: 20px;
+  width: 88px;
+  height: 24px;
   border-radius: 100px;
-  background: #183c34;
+  background: #090d0c;
+  box-shadow: inset -14px 0 14px rgba(31, 54, 47, 0.3);
   transform: translateX(-50%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #142b31;
+    box-shadow: inset 0 0 0 2px #0a1518, 0 0 4px rgba(66, 132, 148, 0.38);
+  }
 }
 
 .food-phone__header {
   display: grid;
   grid-template-columns: 28px 1fr 28px;
   align-items: center;
-  padding: 35px 16px 12px;
+  padding: 8px 17px 13px;
+  border-bottom: 1px solid #edf1ef;
   text-align: center;
 
   strong { font-size: 0.77rem; }
@@ -1240,26 +1313,22 @@ em {
 
 .meal-photo {
   position: relative;
-  display: grid;
-  height: 180px;
-  place-items: center;
+  height: 198px;
   overflow: hidden;
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.19), transparent 45%),
-    #d7c3a8;
+  background: #d7c3a8;
 
   &::before,
   &::after {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(93, 69, 43, 0.08);
+    display: none;
   }
+}
 
-  &::before { left: -40px; top: -55px; }
-  &::after { right: -50px; bottom: -55px; }
+.meal-photo__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.02);
 }
 
 .meal-photo__plate {
@@ -1350,7 +1419,8 @@ em {
 }
 
 .food-phone__body {
-  padding: 16px;
+  padding: 16px 16px 27px;
+  background: linear-gradient(180deg, #fff, #fbfcfb);
 }
 
 .recognition-title {
@@ -1430,6 +1500,18 @@ em {
   cursor: pointer;
   font-size: 0.67rem;
   font-weight: 740;
+}
+
+.food-phone__home {
+  position: absolute;
+  z-index: 4;
+  bottom: 8px;
+  left: 50%;
+  width: 102px;
+  height: 4px;
+  border-radius: 999px;
+  background: #17201d;
+  transform: translateX(-50%);
 }
 
 /* Dashboard preview */
