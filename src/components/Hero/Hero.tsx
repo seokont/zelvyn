@@ -66,6 +66,18 @@ export function Hero() {
         </div>
 
         <div className="hero-dashboard-wrap" aria-label="Демо екрана Zelvyn">
+          <figure className="hero-photo-peek">
+            <img
+              src="/images/balanced-meal.jpg"
+              alt="Збалансована страва зі свіжими овочами"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <figcaption>
+              <span>Контекст дня</span>
+              <strong>Їжа + рух + сон</strong>
+            </figcaption>
+          </figure>
           <div className="hero-dashboard__glow" aria-hidden="true" />
           <div className="hero-dashboard">
             <div className="hero-dashboard__topbar">
