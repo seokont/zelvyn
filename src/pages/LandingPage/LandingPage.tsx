@@ -11,9 +11,11 @@ import { Insights } from "../../components/Insights/Insights";
 import { LifestyleGallery } from "../../components/LifestyleGallery/LifestyleGallery";
 import { Problem } from "../../components/Problem/Problem";
 import { Security } from "../../components/Security/Security";
+import { useLanguage } from "../../i18n/LanguageContext";
 import { trackEvent } from "../../utils/analytics";
 
 export function LandingPage() {
+  const { copy } = useLanguage();
   useEffect(() => {
     trackEvent("landing_view");
 
@@ -60,7 +62,7 @@ export function LandingPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">
-        Перейти до вмісту
+        {copy.skipLink}
       </a>
       <Header />
       <main id="main-content">

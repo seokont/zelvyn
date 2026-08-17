@@ -9,6 +9,7 @@ import {
   Sun,
   Utensils,
 } from "lucide-react";
+import { useLanguage } from "../../i18n/LanguageContext";
 import { trackEvent } from "../../utils/analytics";
 
 const chartSegments = [
@@ -22,6 +23,9 @@ const chartSegments = [
 ];
 
 export function Hero() {
+  const { copy } = useLanguage();
+  const text = copy.hero;
+
   return (
     <section className="hero" id="top">
       <div className="hero__orb hero__orb--one" aria-hidden="true" />
@@ -30,14 +34,14 @@ export function Hero() {
         <div className="hero__content">
           <div className="eyebrow">
             <span className="eyebrow__dot" aria-hidden="true" />
-            Щоденник, який бачить зв’язки
+            {text.eyebrow}
           </div>
           <h1>
-            Зрозумій, що впливає<br /> на твій <em>цукор</em>
+            {text.title}
+            <br /> <em>{text.titleAccent}</em>
           </h1>
           <p className="hero__lead">
-            Записуй глюкозу, харчування, активність і сон. Zelvyn допомагає
-            знаходити персональні закономірності саме у твоїх даних.
+            {text.lead}
           </p>
 
           <div className="hero__actions">
@@ -48,7 +52,7 @@ export function Hero() {
                 trackEvent("hero_cta_click", { placement: "hero" })
               }
             >
-              Спробувати безкоштовно
+              {text.primaryCta}
               <ArrowRight aria-hidden="true" />
             </a>
             <a
@@ -56,13 +60,12 @@ export function Hero() {
               href="#how-it-works"
               onClick={() => trackEvent("how_it_works_click")}
             >
-              Як це працює
+              {text.secondaryCta}
               <ArrowDown aria-hidden="true" />
             </a>
           </div>
           <p className="hero__note">
-            Безкоштовний ранній доступ <span aria-hidden="true">·</span> Без
-            банківської картки
+            {text.noteFirst} <span aria-hidden="true">·</span> {text.noteSecond}
           </p>
         </div>
 
@@ -70,34 +73,36 @@ export function Hero() {
           <figure className="hero-main-photo">
             <img
               src="/images/cooking-together.jpg"
-              alt="Жінка готує свіжу їжу на світлій кухні"
+              alt={text.photoAlt}
               loading="eager"
               fetchPriority="high"
             />
             <figcaption>
               <span>
-                <Sparkles aria-hidden="true" /> Твій день має контекст
+                <Sparkles aria-hidden="true" /> {text.photoTag}
               </span>
-              <strong>Звичайні звички. Зрозумілі сигнали.</strong>
+              <strong>{text.photoTitle}</strong>
             </figcaption>
-            <a
+            {/* <a
               className="hero-main-photo__credit"
               href="https://unsplash.com/photos/woman-smiling-while-cooking-GrdJp16CPk8"
               target="_blank"
               rel="noreferrer"
             >
               Фото: Jason Briscoe
-            </a>
+            </a> */}
           </figure>
 
-          <div className="hero-dashboard-wrap" aria-label="Демо екрана Zelvyn">
+          <div className="hero-dashboard-wrap" aria-label={text.dashboardAria}>
             <div className="hero-dashboard__glow" aria-hidden="true" />
             <div className="hero-dashboard">
               <div className="hero-dashboard__topbar">
                 <div>
-                  <span className="hero-dashboard__kicker">12 червня, середа</span>
+                  <span className="hero-dashboard__kicker">
+                    {text.date}
+                  </span>
                   <p>
-                    Доброго ранку <Sun aria-hidden="true" />
+                    {text.greeting} <Sun aria-hidden="true" />
                   </p>
                 </div>
                 <span className="avatar" aria-hidden="true">
@@ -109,15 +114,18 @@ export function Hero() {
                 <div className="glucose-card__heading">
                   <div>
                     <span className="metric-label">
-                      <Droplet aria-hidden="true" /> Глюкоза
+                      <Droplet aria-hidden="true" /> {text.glucose}
                     </span>
                     <strong>
                       7.8 <small>mmol/L</small>
                     </strong>
                   </div>
-                  <span className="status-pill">Натще</span>
+                  <span className="status-pill">{text.fasting}</span>
                 </div>
-                <div className="mini-chart" aria-label="Декоративний графік глюкози">
+                <div
+                  className="mini-chart"
+                  aria-label={text.chartAria}
+                >
                   <span className="mini-chart__area" />
                   {chartSegments.map((segment, index) => (
                     <span
@@ -137,18 +145,18 @@ export function Hero() {
                   <span>06:00</span>
                   <span>09:00</span>
                   <span>12:00</span>
-                  <span>Зараз</span>
+                  <span>{text.now}</span>
                 </div>
               </div>
 
-              <p className="dashboard-subtitle">Сьогодні</p>
+              <p className="dashboard-subtitle">{text.today}</p>
               <div className="today-grid">
                 <div className="today-card">
                   <span className="today-card__icon today-card__icon--peach">
                     <Utensils aria-hidden="true" />
                   </span>
                   <div>
-                    <span>Сніданок</span>
+                    <span>{text.breakfast}</span>
                     <strong>08:20</strong>
                   </div>
                 </div>
@@ -157,8 +165,8 @@ export function Hero() {
                     <Activity aria-hidden="true" />
                   </span>
                   <div>
-                    <span>Активність</span>
-                    <strong>4 231 крок</strong>
+                    <span>{text.activity}</span>
+                    <strong>{text.steps}</strong>
                   </div>
                 </div>
                 <div className="today-card">
@@ -166,8 +174,8 @@ export function Hero() {
                     <BedDouble aria-hidden="true" />
                   </span>
                   <div>
-                    <span>Сон</span>
-                    <strong>7 год 20 хв</strong>
+                    <span>{text.sleep}</span>
+                    <strong>{text.sleepValue}</strong>
                   </div>
                 </div>
               </div>
@@ -177,23 +185,26 @@ export function Hero() {
                   <Lightbulb aria-hidden="true" />
                 </span>
                 <div>
-                  <span>Персональне спостереження</span>
-                  <p>
-                    Після пізньої вечері ранковий показник був вищим у 7 із 10
-                    подібних випадків.
-                  </p>
+                  <span>{text.insightLabel}</span>
+                  <p>{text.insightText}</p>
                 </div>
               </div>
             </div>
-            <div className="floating-stat floating-stat--top" aria-hidden="true">
-              <span>30 днів</span>
-              <strong>історії</strong>
+            <div
+              className="floating-stat floating-stat--top"
+              aria-hidden="true"
+            >
+              <span>{text.days}</span>
+              <strong>{text.history}</strong>
             </div>
-            <div className="floating-stat floating-stat--bottom" aria-hidden="true">
+            <div
+              className="floating-stat floating-stat--bottom"
+              aria-hidden="true"
+            >
               <span className="floating-stat__dot" />
               <span>
-                <strong>Дані</strong>
-                <small>лише твої</small>
+                <strong>{text.data}</strong>
+                <small>{text.onlyYours}</small>
               </span>
             </div>
           </div>

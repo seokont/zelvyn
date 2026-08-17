@@ -9,45 +9,45 @@ import {
   Wheat,
   Wifi,
 } from "lucide-react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const ingredients = [
-  { icon: Wheat, label: "Рис", amount: "близько 120 г", tone: "yellow" },
-  { icon: Drumstick, label: "Курка", amount: "близько 90 г", tone: "peach" },
-  { icon: Salad, label: "Овочі", amount: "близько 140 г", tone: "green" },
+  { icon: Wheat, tone: "yellow" },
+  { icon: Drumstick, tone: "peach" },
+  { icon: Salad, tone: "green" },
 ];
 
 export function Food() {
+  const { copy } = useLanguage();
+  const text = copy.food;
+
   return (
     <section className="section section--cream food" aria-labelledby="food-title">
       <div className="container food__layout">
         <div className="food__content">
           <div className="section-label-row">
-            <span className="section-label">Щоденник харчування</span>
-            <span className="coming-badge">Незабаром</span>
+            <span className="section-label">{text.label}</span>
+            <span className="coming-badge">{text.coming}</span>
           </div>
-          <h2 id="food-title">Покажи, що ти їси</h2>
-          <p>
-            У майбутньому ти зможеш сфотографувати страву, а застосунок допоможе
-            додати її до щоденника — швидко й без довгих списків.
-          </p>
+          <h2 id="food-title">{text.title}</h2>
+          <p>{text.intro}</p>
           <div className="food__feature-list">
             <span>
-              <Camera aria-hidden="true" /> Одне фото страви
+              <Camera aria-hidden="true" /> {text.features[0]}
             </span>
             <span>
-              <ScanLine aria-hidden="true" /> Попереднє розпізнавання
+              <ScanLine aria-hidden="true" /> {text.features[1]}
             </span>
             <span>
-              <Check aria-hidden="true" /> Підтвердження перед записом
+              <Check aria-hidden="true" /> {text.features[2]}
             </span>
           </div>
           <p className="food__future-note">
-            Це попередній інтерфейс майбутньої функції. Склад страви завжди
-            можна буде виправити вручну.
+            {text.note}
           </p>
         </div>
 
-        <div className="food-phone" aria-label="Демо розпізнавання страви за фото">
+        <div className="food-phone" aria-label={text.phoneAria}>
           <span className="food-phone__button food-phone__button--silent" aria-hidden="true" />
           <span className="food-phone__button food-phone__button--volume-up" aria-hidden="true" />
           <span className="food-phone__button food-phone__button--volume-down" aria-hidden="true" />
@@ -65,18 +65,18 @@ export function Food() {
             </div>
             <div className="food-phone__header">
               <span className="food-phone__back" aria-hidden="true">‹</span>
-              <strong>Додати прийом їжі</strong>
+              <strong>{text.addMeal}</strong>
               <span />
             </div>
             <div className="meal-photo">
               <img
                 className="meal-photo__image"
                 src="/images/balanced-meal.jpg"
-                alt="Страва з рисом, куркою та свіжими овочами"
+                alt={text.imageAlt}
                 loading="lazy"
               />
               <span className="meal-photo__scan"><ScanLine aria-hidden="true" /></span>
-              <span className="meal-photo__label">Фото страви</span>
+              <span className="meal-photo__label">{text.photoLabel}</span>
             </div>
             <div className="food-phone__body">
               <div className="recognition-title">
@@ -84,26 +84,32 @@ export function Food() {
                   <Check aria-hidden="true" />
                 </span>
                 <div>
-                  <strong>Страву розпізнано</strong>
-                  <small>Перевір склад перед збереженням</small>
+                  <strong>{text.recognized}</strong>
+                  <small>{text.verify}</small>
                 </div>
               </div>
               <div className="ingredient-list">
-                {ingredients.map(({ icon: Icon, label, amount, tone }) => (
-                  <div className="ingredient" key={label}>
+                {ingredients.map(({ icon: Icon, tone }, index) => {
+                  const ingredient = text.ingredients[index];
+
+                  return (
+                  <div className="ingredient" key={ingredient.label}>
                     <span className={`ingredient__icon ingredient__icon--${tone}`}>
                       <Icon aria-hidden="true" />
                     </span>
                     <span>
-                      <strong>{label}</strong>
-                      <small>{amount}</small>
+                      <strong>{ingredient.label}</strong>
+                      <small>{ingredient.amount}</small>
                     </span>
-                    <button type="button" aria-label={`Змінити: ${label}`}>Змінити</button>
+                    <button type="button" aria-label={`${text.editAria}: ${ingredient.label}`}>
+                      {text.edit}
+                    </button>
                   </div>
-                ))}
+                  );
+                })}
               </div>
               <button className="food-confirm" type="button">
-                Підтвердити
+                {text.confirm}
               </button>
             </div>
             <span className="food-phone__home" aria-hidden="true" />

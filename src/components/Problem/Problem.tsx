@@ -1,55 +1,48 @@
 import { Activity, Clock3, Moon, Utensils } from "lucide-react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const factors = [
   {
     icon: Utensils,
-    title: "Харчування",
-    text: "Склад страви та розмір порції",
     tone: "peach",
   },
   {
     icon: Moon,
-    title: "Сон",
-    text: "Тривалість і якість",
     tone: "lavender",
   },
   {
     icon: Activity,
-    title: "Активність",
-    text: "Рух протягом дня",
     tone: "green",
   },
   {
     icon: Clock3,
-    title: "Час прийому їжі",
-    text: "Коли був сніданок або вечеря",
     tone: "yellow",
   },
 ];
 
 export function Problem() {
+  const { copy } = useLanguage();
+  const text = copy.problem;
+
   return (
     <section className="section problem" aria-labelledby="problem-title">
       <div className="container">
         <div className="section-intro section-intro--center">
-          <span className="section-label">Показник — це лише початок</span>
+          <span className="section-label">{text.label}</span>
           <h2 id="problem-title">
-            Ти бачиш цифру. Але чи розумієш ти <em>чому?</em>
+            {text.title} <em>{text.titleAccent}</em>
           </h2>
-          <p>
-            Сьогодні вранці глюкоза 7.8. Учора було 6.4. Що змінилося?
-            Відповідь може бути в контексті твого дня.
-          </p>
+          <p>{text.intro}</p>
         </div>
 
         <div className="factor-grid">
-          {factors.map(({ icon: Icon, title, text, tone }) => (
-            <article className="factor-card" key={title}>
+          {factors.map(({ icon: Icon, tone }, index) => (
+            <article className="factor-card" key={text.factors[index].title}>
               <span className={`factor-card__icon factor-card__icon--${tone}`}>
                 <Icon aria-hidden="true" />
               </span>
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <h3>{text.factors[index].title}</h3>
+              <p>{text.factors[index].text}</p>
             </article>
           ))}
         </div>
@@ -61,7 +54,7 @@ export function Problem() {
             <span />
           </span>
           <p>
-            Zelvyn допомагає зібрати ці дані <strong>в одну картину.</strong>
+            {text.callout} <strong>{text.calloutStrong}</strong>
           </p>
         </div>
       </div>

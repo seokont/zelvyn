@@ -1,35 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext";
 import { trackEvent } from "../../utils/analytics";
 
-const questions = [
-  {
-    question: "Для кого Zelvyn?",
-    answer:
-      "Для людей із діабетом 2 типу, які хочуть відстежувати глюкозу та пов’язані з нею фактори.",
-  },
-  {
-    question: "Чи потрібно змінювати лікування?",
-    answer: "Ні. Zelvyn не призначає й не змінює лікування.",
-  },
-  {
-    question: "Чи безкоштовний застосунок?",
-    answer:
-      "На етапі раннього доступу базові функції надаються безкоштовно.",
-  },
-  {
-    question: "Чи буде мобільний застосунок?",
-    answer:
-      "Так, мобільна версія планується після перевірки першої версії продукту.",
-  },
-  {
-    question: "Чи можна підключити глюкометр?",
-    answer:
-      "Інтеграції з пристроями плануються на наступних етапах. У першій версії дані додаватимуться вручну.",
-  },
-];
-
 export function FAQ() {
+  const { copy } = useLanguage();
+  const text = copy.faq;
   const [openItem, setOpenItem] = useState<number | null>(0);
 
   const toggleItem = (index: number) => {
@@ -45,16 +21,13 @@ export function FAQ() {
       <div className="container faq__layout">
         <div className="section-intro faq__intro">
           <span className="section-label">FAQ</span>
-          <h2 id="faq-title">Часті запитання</h2>
-          <p>
-            Не знаходиш відповіді? Напиши нам — ми збираємо запитання, щоб зробити
-            Zelvyn зрозумілішим ще до запуску.
-          </p>
+          <h2 id="faq-title">{text.title}</h2>
+          <p>{text.intro}</p>
           <a href="mailto:hello@zelvyn.app">hello@zelvyn.app</a>
         </div>
 
         <div className="accordion">
-          {questions.map(({ question, answer }, index) => {
+          {text.questions.map(({ question, answer }, index) => {
             const isOpen = openItem === index;
             const panelId = `faq-panel-${index}`;
             const buttonId = `faq-button-${index}`;

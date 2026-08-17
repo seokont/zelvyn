@@ -1,15 +1,12 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Language, useLanguage } from "../../i18n/LanguageContext";
 import { trackEvent } from "../../utils/analytics";
-
-const navigation = [
-  { label: "Як це працює", href: "#how-it-works" },
-  { label: "Можливості", href: "#insights" },
-  { label: "FAQ", href: "#faq" },
-];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, copy } = useLanguage();
+  const { header } = copy;
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -21,11 +18,15 @@ export function Header() {
   }, []);
 
   const closeMenu = () => setIsOpen(false);
+  const changeLanguage = (nextLanguage: Language) => {
+    setLanguage(nextLanguage);
+    trackEvent("language_change", { language: nextLanguage });
+  };
 
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="#top" aria-label="Zelvyn — на головну">
+        <a className="brand" href="#top" aria-label={header.brandHome}>
           <span className="brand__mark" aria-hidden="true">
             <span />
             <span />
@@ -34,38 +35,54 @@ export function Header() {
           <span>Zelvyn</span>
         </a>
 
-        <nav className="desktop-nav" aria-label="Основна навігація">
-          {navigation.map((item) => (
+        <nav className="desktop-nav" aria-label={header.navLabel}>
+          {header.navigation.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
             </a>
           ))}
         </nav>
 
-        <a className="button button--small desktop-cta" href="#early-access">
-          Спробувати безкоштовно
-        </a>
+        <div className="site-header__actions">
+          <div className="language-switch" role="group" aria-label={header.languageLabel}>
+            {(["uk", "en"] as const).map((item) => (
+              <button
+                key={item}
+                type="button"
+                lang={item}
+                aria-pressed={language === item}
+                onClick={() => changeLanguage(item)}
+              >
+                {item === "uk" ? "UA" : "EN"}
+              </button>
+            ))}
+          </div>
 
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setIsOpen((current) => !current)}
-        >
-          {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
+          <a className="button button--small desktop-cta" href="#early-access">
+            {header.cta}
+          </a>
+
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-label={isOpen ? header.closeMenu : header.openMenu}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsOpen((current) => !current)}
+          >
+            {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
+        </div>
       </div>
 
       <nav
         id="mobile-navigation"
         className={`mobile-nav${isOpen ? " mobile-nav--open" : ""}`}
-        aria-label="Мобільна навігація"
+        aria-label={header.mobileNavLabel}
         aria-hidden={!isOpen}
       >
         <div className="container mobile-nav__inner">
-          {navigation.map((item) => (
+          {header.navigation.map((item) => (
             <a key={item.href} href={item.href} onClick={closeMenu}>
               {item.label}
             </a>
@@ -78,7 +95,7 @@ export function Header() {
               closeMenu();
             }}
           >
-            Спробувати безкоштовно
+            {header.cta}
           </a>
         </div>
       </nav>
