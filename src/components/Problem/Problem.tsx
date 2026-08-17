@@ -3,26 +3,26 @@ import { Activity, Clock3, Moon, Utensils } from "lucide-react";
 const factors = [
   {
     icon: Utensils,
-    title: "Питание",
-    text: "Состав блюда и размер порции",
+    title: "Харчування",
+    text: "Склад страви та розмір порції",
     tone: "peach",
   },
   {
     icon: Moon,
     title: "Сон",
-    text: "Продолжительность и качество",
+    text: "Тривалість і якість",
     tone: "lavender",
   },
   {
     icon: Activity,
-    title: "Активность",
-    text: "Движение в течение дня",
+    title: "Активність",
+    text: "Рух протягом дня",
     tone: "green",
   },
   {
     icon: Clock3,
-    title: "Время приёма пищи",
-    text: "Когда был завтрак или ужин",
+    title: "Час прийому їжі",
+    text: "Коли був сніданок або вечеря",
     tone: "yellow",
   },
 ];
@@ -32,13 +32,13 @@ export function Problem() {
     <section className="section problem" aria-labelledby="problem-title">
       <div className="container">
         <div className="section-intro section-intro--center">
-          <span className="section-label">Показатель — это только начало</span>
+          <span className="section-label">Показник — це лише початок</span>
           <h2 id="problem-title">
-            Ты видишь цифру. Но понимаешь ли ты <em>почему?</em>
+            Ти бачиш цифру. Але чи розумієш ти <em>чому?</em>
           </h2>
           <p>
-            Сегодня утром глюкоза 7.8. Вчера было 6.4. Что изменилось?
-            Ответ может быть в контексте твоего дня.
+            Сьогодні вранці глюкоза 7.8. Учора було 6.4. Що змінилося?
+            Відповідь може бути в контексті твого дня.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export function Problem() {
             <span />
           </span>
           <p>
-            Zelvyn помогает собрать эти данные <strong>в одну картину.</strong>
+            Zelvyn допомагає зібрати ці дані <strong>в одну картину.</strong>
           </p>
         </div>
       </div>

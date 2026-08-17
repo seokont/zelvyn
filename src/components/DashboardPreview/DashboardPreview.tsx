@@ -6,31 +6,31 @@ const metrics = [
     label: "Глюкоза",
     value: "7.8",
     unit: "mmol/L",
-    note: "Последний показатель",
+    note: "Останній показник",
     tone: "green",
   },
   {
     icon: Utensils,
-    label: "Питание",
+    label: "Харчування",
     value: "3",
-    unit: "приёма",
-    note: "Сегодня",
+    unit: "прийоми",
+    note: "Сьогодні",
     tone: "peach",
   },
   {
     icon: Activity,
-    label: "Активность",
+    label: "Активність",
     value: "6 421",
-    unit: "шаг",
-    note: "67% дневной цели",
+    unit: "крок",
+    note: "67% денної цілі",
     tone: "blue",
   },
   {
     icon: BedDouble,
     label: "Сон",
-    value: "7ч 20м",
+    value: "7 год 20 хв",
     unit: "",
-    note: "Прошлой ночью",
+    note: "Минулої ночі",
     tone: "lavender",
   },
 ];
@@ -41,14 +41,14 @@ export function DashboardPreview() {
       <div className="container">
         <div className="dashboard-preview__heading">
           <div className="section-intro">
-            <span className="section-label">Данные дня</span>
-            <h2 id="dashboard-title">Вся картина в одном месте</h2>
+            <span className="section-label">Дані дня</span>
+            <h2 id="dashboard-title">Уся картина в одному місці</h2>
           </div>
           <div className="dashboard-preview__summary">
             <TrendingUp aria-hidden="true" />
             <span>
-              <strong>Спокойно и наглядно</strong>
-              <small>без перегруженных таблиц</small>
+              <strong>Спокійно й наочно</strong>
+              <small>без перевантажених таблиць</small>
             </span>
           </div>
         </div>
@@ -61,7 +61,7 @@ export function DashboardPreview() {
                   <Icon aria-hidden="true" />
                 </span>
                 <span className="metric-card__trend">
-                  {index === 0 ? "Сегодня" : "За день"}
+                  {index === 0 ? "Сьогодні" : "За день"}
                 </span>
               </div>
               <p>{label}</p>

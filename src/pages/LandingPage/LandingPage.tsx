@@ -20,7 +20,7 @@ export function LandingPage() {
   return (
     <>
       <a className="skip-link" href="#main-content">
-        Перейти к содержанию
+        Перейти до вмісту
       </a>
       <Header />
       <main id="main-content">

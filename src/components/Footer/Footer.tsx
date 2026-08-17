@@ -10,11 +10,11 @@ export function Footer() {
             <span className="final-cta__ring final-cta__ring--one" aria-hidden="true" />
             <span className="final-cta__ring final-cta__ring--two" aria-hidden="true" />
             <div>
-              <span className="section-label section-label--light">Начни с малого</span>
-              <h2 id="final-cta-title">Начни лучше понимать свой сахар</h2>
+              <span className="section-label section-label--light">Почни з малого</span>
+              <h2 id="final-cta-title">Почни краще розуміти свій цукор</h2>
               <p>
-                Несколько минут в день сегодня могут помочь тебе увидеть
-                закономерности завтра.
+                Кілька хвилин на день сьогодні можуть допомогти тобі побачити
+                закономірності завтра.
               </p>
             </div>
             <a
@@ -24,7 +24,7 @@ export function Footer() {
                 trackEvent("hero_cta_click", { placement: "final_cta" })
               }
             >
-              Начать бесплатно <ArrowRight aria-hidden="true" />
+              Почати безкоштовно <ArrowRight aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -34,36 +34,36 @@ export function Footer() {
         <div className="container">
           <div className="site-footer__top">
             <div>
-              <a className="brand brand--footer" href="#top" aria-label="Zelvyn — на главную">
+              <a className="brand brand--footer" href="#top" aria-label="Zelvyn — на головну">
                 <span className="brand__mark" aria-hidden="true">
                   <span /><span /><span />
                 </span>
                 <span>Zelvyn</span>
               </a>
-              <p>Пойми свой сахар.</p>
+              <p>Зрозумій свій цукор.</p>
             </div>
-            <nav aria-label="Юридическая информация">
-              <a href="#privacy">Privacy</a>
-              <a href="#terms">Terms</a>
-              <a href="#medical-disclaimer">Medical Disclaimer</a>
-              <a href="mailto:hello@zelvyn.app">Contact</a>
+            <nav aria-label="Юридична інформація">
+              <a href="#privacy">Конфіденційність</a>
+              <a href="#terms">Умови</a>
+              <a href="#medical-disclaimer">Медичне застереження</a>
+              <a href="mailto:hello@zelvyn.app">Контакти</a>
             </nav>
           </div>
 
           <div className="site-footer__legal">
             <p id="privacy">
-              <strong>Privacy:</strong> демо-форма раннего доступа не отправляет
-              введённые данные наружу.
+              <strong>Конфіденційність:</strong> демоформа раннього доступу не надсилає
+              введені дані назовні.
             </p>
             <p id="terms">
-              <strong>Terms:</strong> продукт находится на стадии раннего
-              тестирования; показанные возможности являются концептом.
+              <strong>Умови:</strong> продукт перебуває на стадії раннього
+              тестування; показані можливості є концептом.
             </p>
           </div>
 
           <div className="site-footer__bottom">
-            <p>© 2026 Zelvyn. Продукт находится на стадии раннего тестирования.</p>
-            <span>Создано с вниманием к человеку и его данным</span>
+            <p>© 2026 Zelvyn. Продукт перебуває на стадії раннього тестування.</p>
+            <span>Створено з увагою до людини та її даних</span>
           </div>
         </div>
       </footer>

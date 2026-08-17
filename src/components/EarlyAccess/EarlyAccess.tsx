@@ -35,12 +35,12 @@ export function EarlyAccess() {
     const normalizedEmail = email.trim();
 
     if (!normalizedEmail) {
-      setError("Введи email, чтобы получить приглашение.");
+      setError("Введи email, щоб отримати запрошення.");
       return;
     }
 
     if (!emailPattern.test(normalizedEmail)) {
-      setError("Проверь формат email — например, name@example.com.");
+      setError("Перевір формат email — наприклад, name@example.com.");
       return;
     }
 
@@ -64,21 +64,21 @@ export function EarlyAccess() {
             <div className="early-access__icon">
               <Sparkles aria-hidden="true" />
             </div>
-            <span className="early-access__eyebrow">Ранний доступ · бесплатно</span>
+            <span className="early-access__eyebrow">Ранній доступ · безкоштовно</span>
             <h2 id="early-access-title">
-              Стань одним из первых пользователей Zelvyn
+              Стань одним із перших користувачів Zelvyn
             </h2>
             <p>
-              Мы создаём приложение для людей с диабетом 2 типа и ищем первых
-              пользователей, которые помогут сделать его действительно полезным.
+              Ми створюємо застосунок для людей із діабетом 2 типу та шукаємо перших
+              користувачів, які допоможуть зробити його справді корисним.
             </p>
 
             {isSubmitted ? (
               <div className="form-success" role="status" tabIndex={-1}>
                 <CheckCircle2 aria-hidden="true" />
                 <span>
-                  <strong>Спасибо! Ты в списке.</strong>
-                  Мы сообщим, когда Zelvyn будет готов к тестированию.
+                  <strong>Дякуємо! Ти у списку.</strong>
+                  Ми повідомимо, коли Zelvyn буде готовий до тестування.
                 </span>
               </div>
             ) : (
@@ -104,23 +104,23 @@ export function EarlyAccess() {
                   />
                 </div>
                 <button className="button button--light" type="submit">
-                  Получить ранний доступ
+                  Отримати ранній доступ
                   <ArrowRight aria-hidden="true" />
                 </button>
                 <p className="access-form__error" id="email-error" aria-live="polite">
                   {error}
                 </p>
                 <p className="access-form__hint" id="email-hint">
-                  Никакого спама. И никаких данных наружу — это демо-форма.
+                  Жодного спаму. І жодних даних назовні — це демоформа.
                 </p>
               </form>
             )}
           </div>
           <div className="early-access__side" aria-hidden="true">
             <div className="community-stack">
-              <span>А</span><span>М</span><span>Е</span><span>+12</span>
+              <span>О</span><span>М</span><span>Є</span><span>+12</span>
             </div>
-            <p><strong>Первые участники</strong> уже помогают формировать продукт</p>
+            <p><strong>Перші учасники</strong> вже допомагають формувати продукт</p>
           </div>
         </div>
       </div>

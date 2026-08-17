@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { trackEvent } from "../../utils/analytics";
 
 const navigation = [
-  { label: "Как работает", href: "#how-it-works" },
-  { label: "Возможности", href: "#insights" },
+  { label: "Як це працює", href: "#how-it-works" },
+  { label: "Можливості", href: "#insights" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="#top" aria-label="Zelvyn — на главную">
+        <a className="brand" href="#top" aria-label="Zelvyn — на головну">
           <span className="brand__mark" aria-hidden="true">
             <span />
             <span />
@@ -34,7 +34,7 @@ export function Header() {
           <span>Zelvyn</span>
         </a>
 
-        <nav className="desktop-nav" aria-label="Основная навигация">
+        <nav className="desktop-nav" aria-label="Основна навігація">
           {navigation.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
@@ -43,13 +43,13 @@ export function Header() {
         </nav>
 
         <a className="button button--small desktop-cta" href="#early-access">
-          Попробовать бесплатно
+          Спробувати безкоштовно
         </a>
 
         <button
           className="menu-toggle"
           type="button"
-          aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsOpen((current) => !current)}
@@ -61,7 +61,7 @@ export function Header() {
       <nav
         id="mobile-navigation"
         className={`mobile-nav${isOpen ? " mobile-nav--open" : ""}`}
-        aria-label="Мобильная навигация"
+        aria-label="Мобільна навігація"
         aria-hidden={!isOpen}
       >
         <div className="container mobile-nav__inner">
@@ -78,7 +78,7 @@ export function Header() {
               closeMenu();
             }}
           >
-            Попробовать бесплатно
+            Спробувати безкоштовно
           </a>
         </div>
       </nav>

@@ -7,7 +7,7 @@ const days = [
   { label: "Чт", late: true, match: true },
   { label: "Пт", late: true, match: false },
   { label: "Сб", late: true, match: true },
-  { label: "Вс", late: true, match: true },
+  { label: "Нд", late: true, match: true },
   { label: "Пн", late: false, match: false },
   { label: "Вт", late: true, match: true },
   { label: "Ср", late: true, match: true },
@@ -18,13 +18,13 @@ export function Insights() {
     <section className="section insights" id="insights" aria-labelledby="insights-title">
       <div className="container">
         <div className="section-intro section-intro--center">
-          <span className="section-label">Персональные наблюдения</span>
+          <span className="section-label">Персональні спостереження</span>
           <h2 id="insights-title">
-            Не просто дневник.<br /> <em>Связи в твоих данных.</em>
+            Не просто щоденник.<br /> <em>Зв’язки у твоїх даних.</em>
           </h2>
           <p>
-            Чем больше контекста ты добавляешь, тем понятнее становится твоя
-            собственная история.
+            Що більше контексту ти додаєш, то зрозумілішою стає твоя
+            власна історія.
           </p>
         </div>
 
@@ -32,38 +32,38 @@ export function Insights() {
           <div className="insight-card__content">
             <div className="insight-card__badge">
               <Lightbulb aria-hidden="true" />
-              Новое наблюдение
+              Нове спостереження
             </div>
-            <span className="insight-card__period">За последние 30 дней</span>
+            <span className="insight-card__period">За останні 30 днів</span>
             <h3>
-              В 7 из 10 случаев, когда ты ужинал после 21:00, утренняя глюкоза
-              была выше твоего среднего значения.
+              У 7 із 10 випадків, коли ти вечеряв після 21:00, ранкова глюкоза
+              була вищою за твоє середнє значення.
             </h3>
 
             <div className="insight-stats">
               <div>
                 <span>10</span>
-                <p>похожих дней</p>
+                <p>подібних днів</p>
               </div>
               <span className="insight-stats__divider" />
               <div>
                 <span>7</span>
-                <p>совпадений</p>
+                <p>збігів</p>
               </div>
             </div>
 
             <p className="insight-card__disclaimer">
               <Info aria-hidden="true" />
-              Наблюдения основаны на данных пользователя и не являются
-              медицинскими рекомендациями.
+              Спостереження ґрунтуються на даних користувача та не є
+              медичними рекомендаціями.
             </p>
           </div>
 
-          <div className="pattern-panel" aria-label="Демонстрация найденной закономерности">
+          <div className="pattern-panel" aria-label="Демонстрація знайденої закономірності">
             <div className="pattern-panel__header">
               <div>
-                <span>Похожая последовательность</span>
-                <strong>Поздний ужин → утро</strong>
+                <span>Подібна послідовність</span>
+                <strong>Пізня вечеря → ранок</strong>
               </div>
               <span className="pattern-panel__score">7 / 10</span>
             </div>
@@ -74,8 +74,8 @@ export function Insights() {
                   <Utensils aria-hidden="true" />
                 </span>
                 <span>
-                  <small>Ужин</small>
-                  <strong>после 21:00</strong>
+                  <small>Вечеря</small>
+                  <strong>після 21:00</strong>
                 </span>
               </div>
               <span className="pattern-flow__line" aria-hidden="true" />
@@ -84,8 +84,8 @@ export function Insights() {
                   <MoonStar aria-hidden="true" />
                 </span>
                 <span>
-                  <small>Утро</small>
-                  <strong>выше среднего</strong>
+                  <small>Ранок</small>
+                  <strong>вище середнього</strong>
                 </span>
               </div>
             </div>
@@ -99,17 +99,17 @@ export function Insights() {
                       day.late ? " day-pattern__bar--late" : ""
                     }`}
                   >
-                    {day.match && <Check aria-label="Совпадение" />}
+                    {day.match && <Check aria-label="Збіг" />}
                   </span>
                 </div>
               ))}
             </div>
             <div className="pattern-legend">
               <span>
-                <i className="pattern-legend__late" /> Поздний ужин
+                <i className="pattern-legend__late" /> Пізня вечеря
               </span>
               <span>
-                <i className="pattern-legend__match" /> Совпадение утром
+                <i className="pattern-legend__match" /> Збіг уранці
               </span>
             </div>
           </div>

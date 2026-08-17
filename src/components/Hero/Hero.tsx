@@ -29,14 +29,14 @@ export function Hero() {
         <div className="hero__content">
           <div className="eyebrow">
             <span className="eyebrow__dot" aria-hidden="true" />
-            Дневник, который видит связи
+            Щоденник, який бачить зв’язки
           </div>
           <h1>
-            Пойми, что влияет<br /> на твой <em>сахар</em>
+            Зрозумій, що впливає<br /> на твій <em>цукор</em>
           </h1>
           <p className="hero__lead">
-            Записывай глюкозу, питание, активность и сон. Zelvyn помогает
-            находить персональные закономерности именно в твоих данных.
+            Записуй глюкозу, харчування, активність і сон. Zelvyn допомагає
+            знаходити персональні закономірності саме у твоїх даних.
           </p>
 
           <div className="hero__actions">
@@ -47,7 +47,7 @@ export function Hero() {
                 trackEvent("hero_cta_click", { placement: "hero" })
               }
             >
-              Попробовать бесплатно
+              Спробувати безкоштовно
               <ArrowRight aria-hidden="true" />
             </a>
             <a
@@ -55,24 +55,24 @@ export function Hero() {
               href="#how-it-works"
               onClick={() => trackEvent("how_it_works_click")}
             >
-              Как это работает
+              Як це працює
               <ArrowDown aria-hidden="true" />
             </a>
           </div>
           <p className="hero__note">
-            Бесплатный ранний доступ <span aria-hidden="true">·</span> Без
-            банковской карты
+            Безкоштовний ранній доступ <span aria-hidden="true">·</span> Без
+            банківської картки
           </p>
         </div>
 
-        <div className="hero-dashboard-wrap" aria-label="Демо экрана Zelvyn">
+        <div className="hero-dashboard-wrap" aria-label="Демо екрана Zelvyn">
           <div className="hero-dashboard__glow" aria-hidden="true" />
           <div className="hero-dashboard">
             <div className="hero-dashboard__topbar">
               <div>
-                <span className="hero-dashboard__kicker">12 июня, среда</span>
+                <span className="hero-dashboard__kicker">12 червня, середа</span>
                 <p>
-                  Доброе утро <Sun aria-hidden="true" />
+                  Доброго ранку <Sun aria-hidden="true" />
                 </p>
               </div>
               <span className="avatar" aria-hidden="true">
@@ -90,9 +90,9 @@ export function Hero() {
                     7.8 <small>mmol/L</small>
                   </strong>
                 </div>
-                <span className="status-pill">Натощак</span>
+                <span className="status-pill">Натще</span>
               </div>
-              <div className="mini-chart" aria-label="Декоративный график глюкозы">
+              <div className="mini-chart" aria-label="Декоративний графік глюкози">
                 <span className="mini-chart__area" />
                 {chartSegments.map((segment, index) => (
                   <span
@@ -112,18 +112,18 @@ export function Hero() {
                 <span>06:00</span>
                 <span>09:00</span>
                 <span>12:00</span>
-                <span>Сейчас</span>
+                <span>Зараз</span>
               </div>
             </div>
 
-            <p className="dashboard-subtitle">Сегодня</p>
+            <p className="dashboard-subtitle">Сьогодні</p>
             <div className="today-grid">
               <div className="today-card">
                 <span className="today-card__icon today-card__icon--peach">
                   <Utensils aria-hidden="true" />
                 </span>
                 <div>
-                  <span>Завтрак</span>
+                  <span>Сніданок</span>
                   <strong>08:20</strong>
                 </div>
               </div>
@@ -132,8 +132,8 @@ export function Hero() {
                   <Activity aria-hidden="true" />
                 </span>
                 <div>
-                  <span>Активность</span>
-                  <strong>4 231 шаг</strong>
+                  <span>Активність</span>
+                  <strong>4 231 крок</strong>
                 </div>
               </div>
               <div className="today-card">
@@ -142,7 +142,7 @@ export function Hero() {
                 </span>
                 <div>
                   <span>Сон</span>
-                  <strong>7ч 20м</strong>
+                  <strong>7 год 20 хв</strong>
                 </div>
               </div>
             </div>
@@ -152,23 +152,23 @@ export function Hero() {
                 <Lightbulb aria-hidden="true" />
               </span>
               <div>
-                <span>Персональное наблюдение</span>
+                <span>Персональне спостереження</span>
                 <p>
-                  После позднего ужина утренний показатель был выше в 7 из 10
-                  похожих случаев.
+                  Після пізньої вечері ранковий показник був вищим у 7 із 10
+                  подібних випадків.
                 </p>
               </div>
             </div>
           </div>
           <div className="floating-stat floating-stat--top" aria-hidden="true">
-            <span>30 дней</span>
-            <strong>истории</strong>
+            <span>30 днів</span>
+            <strong>історії</strong>
           </div>
           <div className="floating-stat floating-stat--bottom" aria-hidden="true">
             <span className="floating-stat__dot" />
             <span>
-              <strong>Данные</strong>
-              <small>только твои</small>
+              <strong>Дані</strong>
+              <small>лише твої</small>
             </span>
           </div>
         </div>
