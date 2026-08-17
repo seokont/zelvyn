@@ -6,7 +6,7 @@ interface Environment {
   ASSETS: StaticAssets;
 }
 
-const EARLY_ACCESS_ENDPOINT = "https://zelvyn-maks-projects17.vercel.app/api/early-access";
+const EARLY_ACCESS_ENDPOINT = "https://zelvyn.seokont.online/api/early-access";
 
 const worker = {
   async fetch(request: Request, environment: Environment): Promise<Response> {
