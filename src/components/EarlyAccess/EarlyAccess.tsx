@@ -66,7 +66,7 @@ export function EarlyAccess() {
             </div>
             <span className="early-access__eyebrow">Ранний доступ · бесплатно</span>
             <h2 id="early-access-title">
-              Стань одним из первых пользователей GlucoTrack
+              Стань одним из первых пользователей Zelvyn
             </h2>
             <p>
               Мы создаём приложение для людей с диабетом 2 типа и ищем первых
@@ -78,7 +78,7 @@ export function EarlyAccess() {
                 <CheckCircle2 aria-hidden="true" />
                 <span>
                   <strong>Спасибо! Ты в списке.</strong>
-                  Мы сообщим, когда GlucoTrack будет готов к тестированию.
+                  Мы сообщим, когда Zelvyn будет готов к тестированию.
                 </span>
               </div>
             ) : (

@@ -62,9 +62,9 @@ export function Security() {
             <Stethoscope aria-hidden="true" />
           </span>
           <div>
-            <h3 id="medical-note-title">Важно о назначении GlucoTrack</h3>
+            <h3 id="medical-note-title">Важно о назначении Zelvyn</h3>
             <p>
-              GlucoTrack не ставит диагнозы, не заменяет врача и не изменяет
+              Zelvyn не ставит диагнозы, не заменяет врача и не изменяет
               назначенное лечение. Информация приложения предназначена для
               отслеживания и анализа пользовательских данных.
             </p>

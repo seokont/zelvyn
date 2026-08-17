@@ -4,13 +4,13 @@ import { trackEvent } from "../../utils/analytics";
 
 const questions = [
   {
-    question: "Для кого GlucoTrack?",
+    question: "Для кого Zelvyn?",
     answer:
       "Для людей с диабетом 2 типа, которые хотят отслеживать глюкозу и связанные с ней факторы.",
   },
   {
     question: "Нужно ли менять лечение?",
-    answer: "Нет. GlucoTrack не назначает и не изменяет лечение.",
+    answer: "Нет. Zelvyn не назначает и не изменяет лечение.",
   },
   {
     question: "Бесплатно ли приложение?",
@@ -48,9 +48,9 @@ export function FAQ() {
           <h2 id="faq-title">Частые вопросы</h2>
           <p>
             Не нашёл ответ? Напиши нам — мы собираем вопросы, чтобы сделать
-            GlucoTrack понятнее ещё до запуска.
+            Zelvyn понятнее ещё до запуска.
           </p>
-          <a href="mailto:hello@glucotrack.app">hello@glucotrack.app</a>
+          <a href="mailto:hello@zelvyn.app">hello@zelvyn.app</a>
         </div>
 
         <div className="accordion">

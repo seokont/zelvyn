@@ -25,13 +25,13 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="#top" aria-label="GlucoTrack — на главную">
+        <a className="brand" href="#top" aria-label="Zelvyn — на главную">
           <span className="brand__mark" aria-hidden="true">
             <span />
             <span />
             <span />
           </span>
-          <span>GlucoTrack</span>
+          <span>Zelvyn</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Основная навигация">

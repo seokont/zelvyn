@@ -35,7 +35,7 @@ export function Hero() {
             Пойми, что влияет<br /> на твой <em>сахар</em>
           </h1>
           <p className="hero__lead">
-            Записывай глюкозу, питание, активность и сон. GlucoTrack помогает
+            Записывай глюкозу, питание, активность и сон. Zelvyn помогает
             находить персональные закономерности именно в твоих данных.
           </p>
 
@@ -65,7 +65,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="hero-dashboard-wrap" aria-label="Демо экрана GlucoTrack">
+        <div className="hero-dashboard-wrap" aria-label="Демо экрана Zelvyn">
           <div className="hero-dashboard__glow" aria-hidden="true" />
           <div className="hero-dashboard">
             <div className="hero-dashboard__topbar">

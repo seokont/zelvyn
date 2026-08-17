@@ -34,11 +34,11 @@ export function Footer() {
         <div className="container">
           <div className="site-footer__top">
             <div>
-              <a className="brand brand--footer" href="#top" aria-label="GlucoTrack — на главную">
+              <a className="brand brand--footer" href="#top" aria-label="Zelvyn — на главную">
                 <span className="brand__mark" aria-hidden="true">
                   <span /><span /><span />
                 </span>
-                <span>GlucoTrack</span>
+                <span>Zelvyn</span>
               </a>
               <p>Пойми свой сахар.</p>
             </div>
@@ -46,7 +46,7 @@ export function Footer() {
               <a href="#privacy">Privacy</a>
               <a href="#terms">Terms</a>
               <a href="#medical-disclaimer">Medical Disclaimer</a>
-              <a href="mailto:hello@glucotrack.app">Contact</a>
+              <a href="mailto:hello@zelvyn.app">Contact</a>
             </nav>
           </div>
 
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           <div className="site-footer__bottom">
-            <p>© 2026 GlucoTrack. Продукт находится на стадии раннего тестирования.</p>
+            <p>© 2026 Zelvyn. Продукт находится на стадии раннего тестирования.</p>
             <span>Создано с вниманием к человеку и его данным</span>
           </div>
         </div>

@@ -61,7 +61,7 @@ export function Problem() {
             <span />
           </span>
           <p>
-            GlucoTrack помогает собрать эти данные <strong>в одну картину.</strong>
+            Zelvyn помогает собрать эти данные <strong>в одну картину.</strong>
           </p>
         </div>
       </div>
