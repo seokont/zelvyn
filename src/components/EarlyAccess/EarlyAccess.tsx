@@ -11,7 +11,8 @@ export function EarlyAccess() {
   const sectionRef = useRef<HTMLElement>(null);
   const hasTrackedView = useRef(false);
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<"" | "empty" | "invalid">("");
+  const [error, setError] = useState<"" | "empty" | "invalid" | "send">("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export function EarlyAccess() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const normalizedEmail = email.trim();
 
@@ -48,8 +49,32 @@ export function EarlyAccess() {
     }
 
     setError("");
-    setIsSubmitted(true);
-    trackEvent("email_submit", { source: "early_access" });
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch("/api/early-access", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: normalizedEmail,
+          language,
+          website: formData.get("website"),
+        }),
+      });
+      const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
+
+      if (!response.ok || !result?.ok) {
+        throw new Error("Email request was not accepted");
+      }
+
+      setIsSubmitted(true);
+      trackEvent("email_submit", { source: "early_access" });
+    } catch {
+      setError("send");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +105,22 @@ export function EarlyAccess() {
                 </span>
               </div>
             ) : (
-              <form className="access-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="access-form"
+                onSubmit={handleSubmit}
+                aria-busy={isSubmitting}
+                noValidate
+              >
+                <div className="form-honeypot" aria-hidden="true">
+                  <label htmlFor="early-access-website">Website</label>
+                  <input
+                    id="early-access-website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <label className="sr-only" htmlFor="early-access-email">
                   {text.emailLabel}
                 </label>
@@ -101,12 +141,18 @@ export function EarlyAccess() {
                     }}
                   />
                 </div>
-                <button className="button button--light" type="submit">
-                  {text.cta}
+                <button className="button button--light" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? text.sending : text.cta}
                   <ArrowRight aria-hidden="true" />
                 </button>
                 <p className="access-form__error" id="email-error" aria-live="polite">
-                  {error === "empty" ? text.emptyError : error === "invalid" ? text.invalidError : ""}
+                  {error === "empty"
+                    ? text.emptyError
+                    : error === "invalid"
+                      ? text.invalidError
+                      : error === "send"
+                        ? text.sendError
+                        : ""}
                 </p>
                 <p className="access-form__hint" id="email-hint">
                   {text.hint}

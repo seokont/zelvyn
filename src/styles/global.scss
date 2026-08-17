@@ -1738,10 +1738,19 @@ em {
 }
 
 .access-form {
+  position: relative;
   display: grid;
   max-width: 690px;
   gap: 10px;
   margin-inline: auto;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .access-form__field {
@@ -1786,6 +1795,12 @@ em {
   margin: 0;
   color: #94bcb1;
   font-size: 0.67rem;
+}
+
+.access-form .button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
 }
 
 .form-success {

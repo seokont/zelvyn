@@ -19,6 +19,7 @@
     "vite.config.ts",
     "vite.worker.config.ts",
     "build/sites-vite-plugin.ts",
+    "api/**/*.ts",
     "worker/index.ts"
   ]
 }
