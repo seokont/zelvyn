@@ -23,7 +23,7 @@ export function FAQ() {
           <span className="section-label">FAQ</span>
           <h2 id="faq-title">{text.title}</h2>
           <p>{text.intro}</p>
-          <a href="mailto:hello@zelvyn.app">hello@zelvyn.app</a>
+          <a href="mailto:seokont@gmail.com">hello@zelvyn.app</a>
         </div>
 
         <div className="accordion">
@@ -33,7 +33,10 @@ export function FAQ() {
             const buttonId = `faq-button-${index}`;
 
             return (
-              <article className={`accordion__item${isOpen ? " accordion__item--open" : ""}`} key={question}>
+              <article
+                className={`accordion__item${isOpen ? " accordion__item--open" : ""}`}
+                key={question}
+              >
                 <h3>
                   <button
                     id={buttonId}

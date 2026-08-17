@@ -11,10 +11,18 @@ export function Footer() {
       <section className="final-cta" aria-labelledby="final-cta-title">
         <div className="container">
           <div className="final-cta__card">
-            <span className="final-cta__ring final-cta__ring--one" aria-hidden="true" />
-            <span className="final-cta__ring final-cta__ring--two" aria-hidden="true" />
+            <span
+              className="final-cta__ring final-cta__ring--one"
+              aria-hidden="true"
+            />
+            <span
+              className="final-cta__ring final-cta__ring--two"
+              aria-hidden="true"
+            />
             <div>
-              <span className="section-label section-label--light">{text.label}</span>
+              <span className="section-label section-label--light">
+                {text.label}
+              </span>
               <h2 id="final-cta-title">{text.title}</h2>
               <p>{text.intro}</p>
             </div>
@@ -35,9 +43,15 @@ export function Footer() {
         <div className="container">
           <div className="site-footer__top">
             <div>
-              <a className="brand brand--footer" href="#top" aria-label={copy.header.brandHome}>
+              <a
+                className="brand brand--footer"
+                href="#top"
+                aria-label={copy.header.brandHome}
+              >
                 <span className="brand__mark" aria-hidden="true">
-                  <span /><span /><span />
+                  <span />
+                  <span />
+                  <span />
                 </span>
                 <span>Zelvyn</span>
               </a>
@@ -47,7 +61,7 @@ export function Footer() {
               <a href="#privacy">{text.privacy}</a>
               <a href="#terms">{text.terms}</a>
               <a href="#medical-disclaimer">{text.medical}</a>
-              <a href="mailto:hello@zelvyn.app">{text.contacts}</a>
+              <a href="mailto:seokont@gmail.com">{text.contacts}</a>
             </nav>
           </div>
 
