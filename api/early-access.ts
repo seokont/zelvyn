@@ -26,7 +26,8 @@ export default {
 
     const data = (payload ?? {}) as Record<string, unknown>;
     const email = typeof data.email === "string" ? data.email.trim() : "";
-    const language = data.language === "en" ? "English" : "Українська";
+    const language =
+      data.language === "en" ? "English" : data.language === "he" ? "עברית" : "Українська";
     const website = typeof data.website === "string" ? data.website.trim() : "";
 
     // Hidden field: real visitors leave it empty, while basic form bots often fill it.

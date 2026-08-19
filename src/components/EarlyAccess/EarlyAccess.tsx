@@ -14,6 +14,8 @@ export function EarlyAccess() {
   const [error, setError] = useState<"" | "empty" | "invalid" | "send">("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const communityInitials =
+    language === "uk" ? ["О", "М", "Є"] : language === "he" ? ["נ", "מ", "י"] : ["A", "M", "E"];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -162,9 +164,9 @@ export function EarlyAccess() {
           </div>
           <div className="early-access__side" aria-hidden="true">
             <div className="community-stack">
-              <span>{language === "uk" ? "О" : "A"}</span>
-              <span>М</span>
-              <span>{language === "uk" ? "Є" : "E"}</span>
+              {communityInitials.map((initial) => (
+                <span key={initial}>{initial}</span>
+              ))}
               <span>+12</span>
             </div>
             <p><strong>{text.communityTitle}</strong> {text.communityText}</p>

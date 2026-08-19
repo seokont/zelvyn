@@ -45,7 +45,7 @@ export function Header() {
 
         <div className="site-header__actions">
           <div className="language-switch" role="group" aria-label={header.languageLabel}>
-            {(["uk", "en"] as const).map((item) => (
+            {(["uk", "en", "he"] as const).map((item) => (
               <button
                 key={item}
                 type="button"
@@ -53,7 +53,7 @@ export function Header() {
                 aria-pressed={language === item}
                 onClick={() => changeLanguage(item)}
               >
-                {item === "uk" ? "UA" : "EN"}
+                {item === "uk" ? "UA" : item === "he" ? "HE" : "EN"}
               </button>
             ))}
           </div>

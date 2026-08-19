@@ -23,7 +23,7 @@ const chartSegments = [
 ];
 
 export function Hero() {
-  const { copy } = useLanguage();
+  const { copy, language } = useLanguage();
   const text = copy.hero;
 
   return (
@@ -106,7 +106,7 @@ export function Hero() {
                   </p>
                 </div>
                 <span className="avatar" aria-hidden="true">
-                  А
+                  {language === "uk" ? "А" : language === "he" ? "נ" : "A"}
                 </span>
               </div>
 

@@ -109,7 +109,7 @@ em {
 .skip-link {
   position: fixed;
   top: 12px;
-  left: 12px;
+  inset-inline-start: 12px;
   z-index: 1000;
   padding: 10px 16px;
   border-radius: 10px;
@@ -306,6 +306,7 @@ em {
 
 .language-switch {
   display: inline-flex;
+  direction: ltr;
   padding: 3px;
   border: 1px solid rgba(8, 121, 100, 0.16);
   border-radius: 11px;
@@ -1236,8 +1237,8 @@ em {
   max-width: 520px;
   margin: 0;
   padding: 14px 16px;
-  border-left: 3px solid var(--color-warning);
-  border-radius: 0 10px 10px 0;
+  border-inline-start: 3px solid var(--color-warning);
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.62);
   color: #777167;
   font-size: 0.76rem;
@@ -1747,7 +1748,7 @@ em {
 
 .form-honeypot {
   position: absolute;
-  left: -10000px;
+  inset-inline-start: -10000px;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -1758,7 +1759,7 @@ em {
 
   > svg {
     position: absolute;
-    left: 16px;
+    inset-inline-start: 16px;
     top: 50%;
     width: 18px;
     height: 18px;
@@ -1769,7 +1770,8 @@ em {
   input {
     width: 100%;
     min-height: 56px;
-    padding: 14px 16px 14px 46px;
+    padding: 14px 16px;
+    padding-inline-start: 46px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.96);
@@ -1788,7 +1790,7 @@ em {
   margin: 0;
   color: #ffd3d3;
   font-size: 0.72rem;
-  text-align: left;
+  text-align: start;
 }
 
 .access-form__hint {
@@ -1814,7 +1816,7 @@ em {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.1);
   color: #d8eee7;
-  text-align: left;
+  text-align: start;
 
   svg { flex: 0 0 auto; width: 22px; height: 22px; color: #bff3e4; }
   strong { display: block; margin-bottom: 2px; color: #fff; }
@@ -1835,13 +1837,34 @@ em {
     width: 42px;
     height: 42px;
     place-items: center;
-    margin-left: -8px;
+    margin-inline-start: -8px;
     border: 2px solid #0e5648;
     border-radius: 50%;
     background: #d7eee7;
     color: var(--color-primary-dark);
     font-size: 0.68rem;
     font-weight: 800;
+  }
+}
+
+html[lang="he"] {
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.025em;
+  }
+}
+
+html[dir="rtl"] {
+  .access-form__field input {
+    direction: ltr;
+    text-align: left;
+  }
+
+  .hero__actions .button:first-child svg,
+  .access-form .button svg,
+  .final-cta .button svg {
+    transform: rotate(180deg);
   }
 }
 
@@ -1975,7 +1998,7 @@ em {
     color: var(--color-text);
     cursor: pointer;
     font-weight: 700;
-    text-align: left;
+    text-align: start;
 
     svg {
       flex: 0 0 auto;
@@ -2661,14 +2684,18 @@ em {
     align-items: center;
   }
 
-  .early-access__content { padding: 66px 0 66px 68px; text-align: left; }
+  .early-access__content {
+    padding: 66px 0;
+    padding-inline-start: 68px;
+    text-align: start;
+  }
   .early-access__icon { margin: 0 0 16px; }
   .early-access__content h2,
   .early-access__content > p,
   .access-form,
-  .form-success { margin-left: 0; }
+  .form-success { margin-inline-start: 0; }
   .early-access__content > p { max-width: 640px; }
-  .access-form__hint { text-align: left; }
+  .access-form__hint { text-align: start; }
   .early-access__side { display: grid; gap: 14px; padding: 30px; text-align: center; }
   .early-access__side p { margin: 0; color: #a8cbc1; font-size: 0.72rem; }
   .early-access__side strong { display: block; color: #fff; }
